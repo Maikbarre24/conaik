@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connettiti alla Macchina</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode"></script> <!-- Libreria QR -->
+</head>
+<body>
+  <div class="container">
+    <h1>Connettiti alla Macchina</h1>
+
+    <!-- Modalità di Connessione -->
+    <div id="connection-methods">
+      <h3>Scegli un Metodo di Connessione</h3>
+      <button id="qr-method">Connessione tramite QR Code</button>
+      <button id="bluetooth-method">Connessione tramite Bluetooth</button>
+      <button id="manual-method">Connessione tramite Numero Macchina</button>
+    </div>
+
+    <!-- Scansione QR Code -->
+    <div id="qr-section" style="display: none;">
+      <h3>Scansiona il QR Code</h3>
+      <canvas id="qrcode"></canvas>
+      <p id="machine-id">Macchina ID: <span id="machine-code">12345</span></p>
+      <button id="connect-qr">Connettiti</button>
+    </div>
+
+    <!-- Connessione Bluetooth -->
+    <div id="bluetooth-section" style="display: none;">
+      <h3>Connessione tramite Bluetooth</h3>
+      <button id="connect-bluetooth">Connetti</button>
+      <p id="bluetooth-status">Stato: Non connesso</p>
+    </div>
+
+    <!-- Connessione Manuale -->
+    <div id="manual-section" style="display: none;">
+      <h3>Inserisci il Numero della Macchina</h3>
+      <input type="text" id="machine-number" placeholder="Inserisci numero macchina">
+      <button id="connect-manual">Connettiti</button>
+      <p id="manual-status">Stato: Non connesso</p>
+    </div>
+
+    <!-- Selezione Menu -->
+    <div id="menu-section" style="display: none;">
+      <h3>Seleziona il tuo Prodotto</h3>
+      <button class="product-btn" data-command="coffee">Caffè ☕</button>
+      <button class="product-btn" data-command="tea">Tè 🍵</button>
+      <button class="product-btn" data-command="hot_chocolate">Cioccolata Calda 🍫</button>
+      <p id="menu-status">Stato: In attesa della tua scelta...</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
