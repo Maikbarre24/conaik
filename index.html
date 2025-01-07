@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Connettiti alla Macchina</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/qrcode"></script> <!-- Libreria QR -->
+  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -20,34 +20,33 @@
     </div>
 
     <!-- Scansione QR Code -->
-    <div id="qr-section" style="display: none;">
+    <div id="qr-section" class="hidden">
       <h3>Scansiona il QR Code</h3>
-      <canvas id="qrcode"></canvas>
-      <p id="machine-id">Macchina ID: <span id="machine-code">12345</span></p>
-      <button id="connect-qr">Connettiti</button>
+      <div id="qr-reader" style="width: 300px;"></div>
+      <p>Risultato QR Code: <span id="qr-output">Nessun codice scansionato</span></p>
     </div>
 
     <!-- Connessione Bluetooth -->
-    <div id="bluetooth-section" style="display: none;">
+    <div id="bluetooth-section" class="hidden">
       <h3>Connessione tramite Bluetooth</h3>
-      <button id="connect-bluetooth">Connetti</button>
+      <button id="bluetooth-connect">Connetti</button>
       <p id="bluetooth-status">Stato: Non connesso</p>
     </div>
 
     <!-- Connessione Manuale -->
-    <div id="manual-section" style="display: none;">
+    <div id="manual-section" class="hidden">
       <h3>Inserisci il Numero della Macchina</h3>
-      <input type="text" id="machine-number" placeholder="Inserisci numero macchina">
-      <button id="connect-manual">Connettiti</button>
+      <input type="text" id="machine-number" placeholder="Inserisci il numero della macchina">
+      <button id="manual-connect">Connettiti</button>
       <p id="manual-status">Stato: Non connesso</p>
     </div>
 
-    <!-- Selezione Menu -->
-    <div id="menu-section" style="display: none;">
+    <!-- Selezione Prodotto -->
+    <div id="menu-section" class="hidden">
       <h3>Seleziona il tuo Prodotto</h3>
-      <button class="product-btn" data-command="coffee">Caffè ☕</button>
-      <button class="product-btn" data-command="tea">Tè 🍵</button>
-      <button class="product-btn" data-command="hot_chocolate">Cioccolata Calda 🍫</button>
+      <button class="product-btn" data-product="Caffè">Caffè ☕</button>
+      <button class="product-btn" data-product="Tè">Tè 🍵</button>
+      <button class="product-btn" data-product="Cioccolata Calda">Cioccolata Calda 🍫</button>
       <p id="menu-status">Stato: In attesa della tua scelta...</p>
     </div>
   </div>
